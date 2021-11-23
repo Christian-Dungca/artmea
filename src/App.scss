@@ -5,14 +5,18 @@ font-family: 'Quattrocento Sans', sans-serif;
 */
 .App {
   background-color: #efebe7;
+  display: grid;
+  place-content: center;
 }
 
 .Landing {
-  max-width: 100vw;
+  width: 100vw;
+  max-width: 140rem;
   height: 100vh;
+  overflow: hidden;
   padding: 5rem 10rem 0rem 5rem;
   // overflow: hidden;
-  background: radial-gradient(circle at 50% 60%, #c76b0f 0%, #efebe7 30%);
+  background: radial-gradient(circle at 50% 50%, #c76b0f 0%, #efebe7 30%);
 }
 
 .Navigation {
@@ -102,242 +106,239 @@ font-family: 'Quattrocento Sans', sans-serif;
   width: 100%;
   height: 90vh;
   margin-top: 4rem;
+  padding-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  // CSS Grids
-  display: grid;
-  grid-template-columns: [left] 1fr [center] 2fr [right] 1fr;
-  grid-template-rows: repeat(3, 1fr);
-
-  .shield-svg-container {
-    grid-row: 1;
-    grid-column: 1;
-    align-self: flex-end;
-    // background-color: rgb(182, 107, 94);
-    position: relative;
-
-    .shieldSVG {
-      // background-color: yellow;
-      width: 13rem;
-      height: 13rem;
-    }
-
-    .ribbonSVG {
-      width: 5rem;
-      height: 5rem;
-      position: absolute;
-      bottom: 4.8rem;
-      left: 6.5rem;
-      transform: translate(-50%, 0%);
-      z-index: 2;
-      fill: #efebe7;
-    }
-  }
-
-  .main-image-container {
-    // background-color: green;
-    grid-row: 1 / span 2;
-    grid-column: 2;
+  .top-portion {
+    // background-color: gainsboro;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: relative;
-    overflow: visible;
+    justify-content: space-between;
+    height: 60%;
 
-    // test
-    width: 48rem;
-    height: 55rem;
-    position: absolute;
-    top: 47%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    .text-path {
-      // background-color: yellow;
+    .main-image-container {
+      width: 48rem;
+      height: 55rem;
       position: absolute;
-      top: -6%;
-      left: 0;
-      width: 47rem;
-      height: 60rem;
+      top: 47%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-      .textSVG {
-        fill: #000;
-        font-size: 14rem;
+      .text-path-svg {
+        // background-color: red;
+        position: absolute;
+        top: -6%;
+        left: 0;
+        width: 47rem;
+        height: 60rem;
+
+        .textSVG {
+          fill: #000;
+          font-size: 14rem;
+        }
       }
-      .textPath {
+
+      .main-image {
+        background-image: url(./assets/images/boat-on-water.jpeg);
+        background-size: cover;
+        width: 37rem;
+        height: 48rem;
+        border-radius: 48%;
+        border: 1px solid #000d;
+        position: absolute;
+        top: 47%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
-    .main-image {
-      background-image: url(./assets/images/boat-on-water.jpeg);
-      background-size: cover;
-      width: 38rem;
-      height: 53rem;
-      border-radius: 48%;
-      border: 1px solid #000d;
+    .left-column {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      // background-color: green;
+      width: max-content;
       position: relative;
+      z-index: 20;
 
-      // &::after {
-      //   content: "";
-      //   background: radial-gradient(circle at center, #c76b0f 0, #c76b0f80 50%, #efebe7 100%);
-      //   width: 30rem;
-      //   height: 30rem;
-      //   position: absolute;
-      //   top: 90%;
-      //   left: 50%;
-      //   transform: translate(-50%, -50%);
-      //   border-radius: 50%;
-      //   z-index: -1;
-      // }
+      .shield-svg-container {
+        // background-color: yellow;
+        width: max-content;
+        position: relative;
+
+        .shieldSVG {
+          width: 13rem;
+          height: 13rem;
+        }
+
+        .ribbonSVG {
+          width: 5rem;
+          height: 5rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -60%);
+          z-index: 2;
+          fill: #404ab9;
+          fill: #efebe7;
+        }
+      }
+
+      .big-text-container {
+        ul {
+          list-style: none;
+
+          li {
+            display: block;
+
+            p {
+              font-family: "Playfair Display SC", serif;
+              font-weight: 400;
+              font-size: 8rem;
+              background: linear-gradient(45deg, #000 0 50%, #c76b0f 90% 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+
+            .text-gradient-1 {
+              background: linear-gradient(45deg, #000 0 50%, #c76b0f 90% 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+              // color: blue;
+            }
+
+            .text-gradient-2 {
+              background: linear-gradient(45deg, #000 0 50%, #c76b0f 70% 100%);
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
+          }
+        }
+      }
     }
-  }
-  .small-svg-container {
-    grid-row: 1;
-    grid-column: 3;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
 
-    .small-svg-wrapper {
+    .right-column {
+      // background-color: lightblue;
+      height: 100%;
       width: max-content;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      justify-content: space-between;
 
-      .leviathanSVG {
-        margin-bottom: 1.5rem;
-        // background-color: yellow;
+      .small-svg-container {
+        align-self: center;
+
+        .small-svg-wrapper {
+          width: max-content;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .leviathanSVG {
+            margin-bottom: 1.5rem;
+            // background-color: yellow;
+          }
+
+          p {
+            font-family: "Quattrocento Sans", sans-serif;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            line-height: 140%;
+          }
+        }
       }
 
-      p {
-        font-family: "Quattrocento Sans", sans-serif;
-        font-size: 1.6rem;
-        text-align: center;
-        margin-bottom: 3rem;
-        line-height: 140%;
+      .tear-drop-container {
+        .tear-drop {
+          max-width: 18rem;
+          min-width: 18rem;
+          height: 28rem;
+          max-height: 60rem;
+          border-radius: 10rem 10rem 0 12rem;
+          background-image: url(./assets/images/cliff-side-walk.jpeg);
+          background-position: center;
+          background-size: cover;
+        }
       }
     }
   }
-  .big-text-container {
-    grid-column: 1;
-    grid-row: 2;
-    position: relative;
 
-    ul {
-      list-style: none;
-      position: absolute;
-      top: 5%;
+  .bottom-portion {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 30%;
+    // background-color: gainsboro;
 
-      li {
-        display: block;
+    .window-text-container {
+      grid-row: 3;
+      grid-column: 1;
+      // background-color: cadetblue;
 
+      display: flex;
+      align-items: flex-end;
+
+      .window {
+        width: 15rem;
+        height: 15rem;
+        background-color: black;
+        border-radius: 50% 50% 0rem 0rem;
+        border: 2px solid #000;
+        background: url(./assets/images/countryside-clouds.jpeg);
+        background-size: cover;
+        margin-right: 3rem;
+      }
+
+      .window-list {
+        font-family: "Quattrocento Sans", sans-serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+
+        p:not(p:nth-last-child(1)) {
+          border-bottom: 1px solid #000;
+        }
+      }
+    }
+
+    &__text-container {
+      // background-color: lightgreen;
+      width: 50%;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .ampersand-container {
+        grid-column: 1;
+        grid-row: 1 / span 2;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 8%;
+        margin-top: -40px;
+        visibility: hidden;
+
+        .ampersand {
+          width: 14rem;
+          height: 14rem;
+          fill: #000;
+        }
+      }
+
+      .bottom-text-container {
+        grid-row: 2;
+        grid-column: 2 / span 1;
+        text-align: right;
+        margin-left: -4rem;
         p {
           font-family: "Playfair Display SC", serif;
           font-weight: 400;
           font-size: 8rem;
-          background: linear-gradient(45deg, #000 0 50%, #c76b0f 90% 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .text-gradient-1 {
-          background: linear-gradient(45deg, #000 0 50%, #c76b0f 90% 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          // color: blue;
-        }
-
-        .text-gradient-2 {
-          background: linear-gradient(45deg, #000 0 50%, #c76b0f 70% 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
         }
       }
-    }
-  }
-  .tear-drop-container {
-    // background-color: maroon;
-    grid-row: 2;
-    grid-column: 3;
-    display: flex;
-    justify-content: flex-start;
-    position: relative;
-
-    .tear-drop {
-      position: absolute;
-      bottom: -50%;
-      // transform: translate(0, -50%);
-      width: 90%;
-      max-width: 22rem;
-      min-width: 22rem;
-      height: 100%;
-      max-height: 60rem;
-      // background-color: lightslategrey;
-      border-radius: 10rem 10rem 0 12rem;
-      background-image: url(./assets/images/cliff-side-walk.jpeg);
-      background-position: center;
-      background-size: cover;
-    }
-  }
-
-  .window-text-container {
-    grid-row: 3;
-    grid-column: 1;
-    // background-color: cadetblue;
-
-    display: flex;
-    align-items: flex-end;
-
-    .window {
-      width: 15rem;
-      height: 15rem;
-      background-color: black;
-      border-radius: 50% 50% 0rem 0rem;
-      border: 2px solid #000;
-      background: url(./assets/images/countryside-clouds.jpeg);
-      background-size: cover;
-      margin-right: 3rem;
-    }
-
-    .window-list {
-      font-family: "Quattrocento Sans", sans-serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-
-      p:not(p:nth-last-child(1)) {
-        border-bottom: 1px solid #000;
-      }
-    }
-  }
-
-  .ampersand-container {
-    grid-row: 3;
-    grid-column: 2;
-    // background-color: red;
-    z-index: 100;
-    overflow: hidden;
-
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    padding-top: 8%;
-
-    .ampersand {
-      // background-color: green;
-      width: 14rem;
-      height: 14rem;
-      fill: #000;
-    }
-  }
-
-  .bottom-text-container {
-    grid-row: 3;
-    grid-column: 3;
-    z-index: 1;
-
-    p {
-      font-family: "Playfair Display SC", serif;
-      font-weight: 400;
-      font-size: 8rem;
     }
   }
 }
